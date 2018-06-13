@@ -4,6 +4,7 @@ module.exports = {
         name: "megatron-webhook",
         script: "./index.js",
         watch: true,
+        interpreter: "./node_modules/.bin/babel-node",
         env: {
             "NODE_ENV": "dev"
         },
