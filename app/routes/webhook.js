@@ -3,6 +3,7 @@ import config from 'config';
 const router = express.Router();
 
 router.get('/', (req, res) => {
+  console.log(req.query);
   const mode = req.query['hub.mode'];
   const token = req.query['hub.verify_token'];
   const challenge = req.query['hub.challenge'];
@@ -15,6 +16,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const body = req.body;
+  console.log(req.body);
   if (body.object === 'page') {
     body.entry.forEach(function(entry) {
       let webhook_event = entry.messaging[0];
