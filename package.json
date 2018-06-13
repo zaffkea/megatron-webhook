@@ -1,0 +1,26 @@
+{
+  "name": "fb-bot-tut",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=dev nodemon --exec npm run babel-node -- index.js",
+    "test": "NODE_ENV=test nyc mocha test/* --require babel-register --exit",
+    "babel-node": "babel-node"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "config": "^1.30.0",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5",
+    "nyc": "^11.8.0"
+  }
+}
