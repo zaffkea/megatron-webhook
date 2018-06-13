@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:prod": "NODE_ENV=prod npm run babel-node -- index.js",
     "start": "NODE_ENV=dev nodemon --exec npm run babel-node -- index.js",
     "test": "NODE_ENV=test nyc mocha test/* --require babel-register --exit",
     "babel-node": "babel-node"
