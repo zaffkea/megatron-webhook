@@ -18,11 +18,11 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const body = req.body;
-  // console.log(req.body);
+  console.log(JSON.stringify(req.body));
   if (body.object === 'page') {
     body.entry.forEach(entry => {
       if(entry.messaging && entry.messaging[0]){
-        processMessage(entry.messaging[0]);
+        // processMessage(entry.messaging[0]);
       }
       // let webhook_event = entry.messaging[0];
       // console.log(webhook_event);
