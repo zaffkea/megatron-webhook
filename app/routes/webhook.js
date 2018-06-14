@@ -4,8 +4,7 @@ import processMessage from '../helpers/processMessage';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  // processMessage('foo');
-  console.log(req.query);
+  console.log(JSON.stringify(req.query));
   const mode = req.query['hub.mode'];
   const token = req.query['hub.verify_token'];
   const challenge = req.query['hub.challenge'];
@@ -24,8 +23,9 @@ router.post('/', (req, res) => {
       if(entry.messaging && entry.messaging[0]){
         // processMessage(entry.messaging[0]);
       }
-      // let webhook_event = entry.messaging[0];
-      // console.log(webhook_event);
+      if(entry.changes && entry.changes[0]){
+        // process the update
+      }
     });
     res.status(200).send('EVENT_RECEIVED');
   } else {

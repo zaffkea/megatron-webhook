@@ -1,7 +1,7 @@
 import config from 'config';
 import "isomorphic-fetch";
 
-const getConversationId = () => {
+const startConversation = () => {
   return fetch('https://directline.botframework.com/v3/directline/conversations', {
     headers: {
       'Authorization': 'Bearer ' + config.bot_token,
@@ -10,8 +10,8 @@ const getConversationId = () => {
     method: "POST"
   })
   .then(res => res.json())
-  .catch(err => console.error(err))
-  .then(response => response);
+  .then(response => response)
+  .catch(err => err);
 }
 
 const sendResponse = (recipient, message) => {
@@ -35,8 +35,9 @@ const sendResponse = (recipient, message) => {
 };
 
 const processMessage = msg => {
-  getConversationId()
-  .then(conversation => console.log(conversation));
+  startConversation()
+  .then(conversation => console.log(conversation))
+  .catch(err => console.error(err));
   // sendResponse(msg.sender.id, "you said: " + msg.message.text);
 }
 
