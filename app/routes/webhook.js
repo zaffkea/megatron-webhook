@@ -4,7 +4,7 @@ import processMessage from '../helpers/processMessage';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  console.log(JSON.stringify(req.query));
+  console.log('Megatron recieved GET request\n', JSON.stringify(req.query));
   const mode = req.query['hub.mode'];
   const token = req.query['hub.verify_token'];
   const challenge = req.query['hub.challenge'];
@@ -17,11 +17,11 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const body = req.body;
-  console.log(JSON.stringify(req.body));
+  console.log('Megatron recieved POST request\n', JSON.stringify(req.body));
   if (body.object === 'page') {
     body.entry.forEach(entry => {
       if(entry.messaging && entry.messaging[0]){
-        // processMessage(entry.messaging[0]);
+        processMessage(entry.messaging[0]);
       }
       if(entry.changes && entry.changes[0]){
         // process the update
