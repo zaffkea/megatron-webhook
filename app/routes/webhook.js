@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
         processMessage(entry.messaging[0]);
       }
       // check if it's a feed change
-      if(entry.changes && entry.changes[0] && entry.changes[0].field === 'feed'){
+      if(entry.changes && entry.changes[0] && entry.changes[0].field === 'feed' && entry.changes[0].value.verb === 'add'){
         processFeedChange(entry.changes[0].value);
       }
     });
