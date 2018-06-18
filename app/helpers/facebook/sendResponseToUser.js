@@ -2,7 +2,7 @@ import config from 'config';
 import 'isomorphic-fetch';
 
 const sendResponseToUser = (recipient, message) => {
-  return fetch('https://graph.facebook.com/v2.6/me/messages?access_token=' + config.access_token, {
+  return fetch('https://graph.facebook.com/v2.6/me/messages?access_token=' + config.message_token, {
     headers: {
       'content-type': 'application/json'
     },
