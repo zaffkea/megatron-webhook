@@ -10,7 +10,7 @@ const processReaction = reaction => {
   if(reaction.post_id !== reaction.parent_id){
     return console.log('The post is not the parent post.');
   }
-  if(reaction.item === 'like' || reaction.reaction_type === 'like'){
+  if(reaction.reaction_type === 'like'){
     return sendMessageToUser(reaction.from.id, message);
   }
 }

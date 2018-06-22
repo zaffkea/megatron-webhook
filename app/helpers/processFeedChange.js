@@ -13,7 +13,6 @@ const processFeedChange = feed => {
       likePost(feed.post_id);
       break;
     case 'reaction':
-    case 'like':
       processReaction(feed);
       break;
     default:
