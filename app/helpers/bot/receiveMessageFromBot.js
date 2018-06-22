@@ -1,5 +1,5 @@
 import config from 'config';
-import sendResponseToUser from '../facebook/sendResponseToUser';
+import sendMessageToUser from '../facebook/sendMessageToUser';
 
 const receiveMessageFromBot = (message, userId) => {
   if(!message) return;
@@ -7,7 +7,7 @@ const receiveMessageFromBot = (message, userId) => {
     return activity.type === "message" && activity.from.id === config.bot_id
   }).forEach(activity => {
     console.log('Megatron received message from bot \n', message);
-    sendResponseToUser(userId, activity.text);
+    sendMessageToUser(userId, activity.text);
   });
 }
 

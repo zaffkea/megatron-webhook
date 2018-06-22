@@ -1,7 +1,7 @@
 import config from 'config';
 import 'isomorphic-fetch';
 
-const sendResponseToUser = (recipient, message) => {
+const sendMessageToUser = (recipient, message) => {
   return fetch('https://graph.facebook.com/v3.0/me/messages?access_token=' + config.message_token, {
     headers: {
       'content-type': 'application/json'
@@ -21,4 +21,4 @@ const sendResponseToUser = (recipient, message) => {
   .catch(err => console.error(err));
 };
 
-export default sendResponseToUser;
+export default sendMessageToUser;
