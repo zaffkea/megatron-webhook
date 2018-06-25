@@ -15,10 +15,6 @@ import reactionLike from '../mock_data/reactionLike.json';
 describe('processFeedChange.js', () => {
 
   beforeEach(() => {
-    // const reactionLike = require('../mock_data/reactionLike.json');
-    // const commentObj = require('../mock_data/comment.json');
-    // like = JSON.parse(JSON.stringify(reactionLike.entry[0].changes[0].value));
-    // comment = JSON.parse(JSON.stringify(commentObj.entry[0].changes[0].value));
     sinon.spy(console, 'log');
     sinon.stub(likePost, 'default');
     sinon.stub(processReaction, 'default');
