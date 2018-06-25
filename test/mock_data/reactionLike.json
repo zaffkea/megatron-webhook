@@ -1,0 +1,26 @@
+{
+  "entry": [
+    {
+      "changes": [
+        {
+          "field": "feed",
+          "value": {
+            "reaction_type": "like",
+            "from": {
+              "id": "<SENDER_ID>",
+              "name": "<SENDER_NAME>"
+            },
+            "parent_id": "<PAGE_ID>_<POST_PARENT_ID>",
+            "post_id": "<PAGE_ID>_<POST_ID>",
+            "verb": "add",
+            "item": "reaction",
+            "created_time": 1529958009
+          }
+        }
+      ],
+      "id": "<PAGE_ID>",
+      "time": 1529958011
+    }
+  ],
+  "object": "page"
+}

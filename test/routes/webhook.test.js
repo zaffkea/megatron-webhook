@@ -4,9 +4,10 @@ import server from '../../app/server';
 import config from 'config';
 import sinon from 'sinon';
 import * as processMessage from '../../app/helpers/processMessage';
+import * as processFeedChange from '../../app/helpers/processFeedChange';
 
-const should = chai.should();
-const expect = chai.expect;
+import message from '../mock_data/message.json';
+import reactionLike from '../mock_data/reactionLike.json';
 
 chai.use(chaiHttp);
 
@@ -47,35 +48,28 @@ describe('webhook.js', () => {
     });
   });
 
-  it('POST returns status 200', (done) => {
-    const pm = sinon.stub(processMessage, 'default')
-      .returns(Promise.resolve({}));
+  it('receives message from user and returns status 200', (done) => {
+    sinon.stub(processMessage, 'default').returns(Promise.resolve({}));
     chai.request(server)
     .post('/webhook')
-    .send({
-      object: 'page',
-      entry: [
-        {
-          id:'<PAGE_ID>',
-          time: Date.now(),
-          messaging: [
-            {
-              sender: {
-                id:"<PSID>"
-              },
-              recipient: {
-                id: "<PAGE_ID>"
-              }
-            }
-          ]
-        }
-      ]
-    })
+    .send(message)
     .end((err, res) => {
       res.should.have.status(200);
       res.text.should.equal('EVENT_RECEIVED');
       done();
     });
+  });
+
+  it('receives feed change and returns status 200', (done) => {
+    sinon.stub(processFeedChange, 'default').returns(Promise.resolve({}));
+    chai.request(server)
+      .post('/webhook')
+      .send(reactionLike)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.text.should.equal('EVENT_RECEIVED');
+        done();
+      });
   });
 
 });
