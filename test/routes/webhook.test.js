@@ -2,6 +2,8 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../../app/server';
 import config from 'config';
+import sinon from 'sinon';
+import * as processMessage from '../../app/helpers/processMessage';
 
 const should = chai.should();
 const expect = chai.expect;
@@ -46,6 +48,8 @@ describe('webhook.js', () => {
   });
 
   it('POST returns status 200', (done) => {
+    const pm = sinon.stub(processMessage, 'default')
+      .returns(Promise.resolve({}));
     chai.request(server)
     .post('/webhook')
     .send({
@@ -69,6 +73,7 @@ describe('webhook.js', () => {
     })
     .end((err, res) => {
       res.should.have.status(200);
+      res.text.should.equal('EVENT_RECEIVED');
       done();
     });
   });
