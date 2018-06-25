@@ -1,0 +1,26 @@
+{
+  "entry": [
+    {
+      "changes": [
+        {
+          "field": "feed",
+          "value": {
+            "from": {
+              "id": "<SENDER_ID>",
+              "name": "<SENDER_NAME>"
+            },
+            "item": "post",
+            "post_id": "<PAGE_ID>_<POST_NUMBER>",
+            "verb": "add",
+            "created_time": 1529966511,
+            "is_hidden": false,
+            "message": "test post"
+          }
+        }
+      ],
+      "id": "<PAGE_ID>",
+      "time": 1529966514
+    }
+  ],
+  "object": "page"
+}

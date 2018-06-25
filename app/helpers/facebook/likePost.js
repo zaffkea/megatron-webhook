@@ -2,6 +2,7 @@ import config from 'config';
 import 'isomorphic-fetch';
 
 const likePost = (post_id) => {
+  console.log('no no no no no no no no!');
   fetch('https://graph.facebook.com/v3.0/' + post_id + '/likes?access_token=' + config.publish_pages_token, {
     headers: {
       'content-type': 'application/json'
