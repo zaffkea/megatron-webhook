@@ -1,0 +1,39 @@
+{
+  "object": "page",
+  "entry": [
+    {
+      "id": "<PAGE_ID>",
+      "time": 1529958634135,
+      "messaging": [
+        {
+          "sender": {
+            "id":"<PSID>"
+          },
+          "recipient": {
+            "id": "<PAGE_ID>"
+          },
+          "timestamp": 1529958633503,
+          "message": {
+            "text": "hi",
+            "nlp": {
+              "entities": {
+                "sentiment": [
+                  {
+                    "confidence": 0.73355811297703,
+                    "value": "positive"
+                  }
+                ],
+                "greetings": [
+                  {
+                    "confidence": 0.99993050098374,
+                    "value": "true"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
