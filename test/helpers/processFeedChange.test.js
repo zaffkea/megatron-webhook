@@ -11,6 +11,7 @@ import * as processReaction from '../../app/helpers/processReaction';
 import comment from '../mock_data/comment.json';
 import post from '../mock_data/post.json';
 import reactionLike from '../mock_data/reactionLike.json';
+import like from '../mock_data/like.json';
 
 describe('processFeedChange.js', () => {
 
@@ -58,11 +59,10 @@ describe('processFeedChange.js', () => {
   });
 
   it('logs the feed change if no logic exists for it', (done) => {
-    const feedChange = JSON.parse(JSON.stringify(comment.entry[0].changes[0].value));
-    feedChange.item = 'trigger_default';
-    processFeedChange(feedChange);
+    const likeObj = like.entry[0].changes[0].value
+    processFeedChange(likeObj);
     expect(console.log.calledOnce).to.be.true;
-    expect(console.log.calledWith('no logic for processing:', feedChange.item)).to.be.true;
+    expect(console.log.calledWith('no logic for processing:', likeObj.item)).to.be.true;
     done();
   });
 
