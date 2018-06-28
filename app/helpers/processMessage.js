@@ -6,7 +6,7 @@ import endConversation from './bot/endConversation';
 import sendMessageToBot from './bot/sendMessageToBot';
 import receiveMessageFromBot from './bot/receiveMessageFromBot';
 
-const conversations = {};
+export const conversations = {};
 
 const removeConversation = userId => {
   console.log('Megatron removed conversation for user:', userId);

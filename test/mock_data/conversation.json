@@ -1,0 +1,7 @@
+{
+  "conversationId": "<CONVERSATION_ID>",
+  "token": "<TOKEN>",
+  "expires_in": 1800,
+  "streamUrl": "<STREAM_URL>",
+  "referenceGrammarId": "<REFERENCE_GRAMMER_ID>"
+}
