@@ -1,7 +1,7 @@
 import config from 'config';
 import sendMessageToUser from './facebook/sendMessageToUser';
 
-const message = 'I see you liked our post. Do you have any questions or things I can help you with today?';
+export const message = 'I see you liked our post. Do you have any questions or things I can help you with today?';
 
 const processReaction = reaction => {
   if(!reaction.post_id.includes(config.page_id)){
